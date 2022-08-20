@@ -26,6 +26,19 @@ python reverse_diffusion_process.py --data_type cifar10 --timesteps 1000 --weigh
 ```
 ![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/rev_diff.png)
 
+## Read code
+### difussion process
+![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/intro_diff.png)
+```python
+    x_0 = torch.tensor(x_0).to(device)
+    betas = linear_beta_schedule(beta_start, beta_end, timesteps)
+    alphas = 1 - betas 
+    alphas_cumprod = torch.cumprod(alphas, dim=0).to(device) # [a0, a0*a1, a0*a1*a2,...,a0*a1*a2*...*at]
+    alpha_bar = alphas_cumprod.gather(-1, torch.tensor(t)).  # look up the element in alphas_cumprod
+    eps = torch.randn_like(x_0)
+    x_t = torch.sqrt(alpha_bar) * x_0 + torch.sqrt(1 - alpha_bar) * eps
+```
+
 ## Requirements
 1. python3
 2. torch

@@ -1,4 +1,4 @@
-# DDPM_pytorch
+# Denoising diffusion model
 Denoising Diffusion Probabilistic Models (DDPM)
 
 ## Introduction

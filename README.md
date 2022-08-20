@@ -103,5 +103,9 @@ class ResBlock(nn.Module):
         return x + h 
 ```
 ## Acknowledgement
- 
+* Official tensorflow implementation [ddpm](https://github.com/hojonathanho/diffusion)
+* Unofficial pytorch implementation [ddpm](https://github.com/lucidrains/denoising-diffusion-pytorch)
+## Author 
+Mingtao Guo
+E-mail: gmt798714378@hotmail.com
 

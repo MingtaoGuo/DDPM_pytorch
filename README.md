@@ -103,7 +103,7 @@ class ResBlock(nn.Module):
         x = self.shortcut(x)
         return x + h 
 ```
-## Acknowledgement
+## Acknowledgements
 * Official tensorflow implementation [ddpm](https://github.com/hojonathanho/diffusion)
 * Unofficial pytorch implementation [ddpm](https://github.com/lucidrains/denoising-diffusion-pytorch)
 ## Author 

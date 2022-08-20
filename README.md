@@ -13,25 +13,18 @@ Paper: [Denoising Diffusion Probabilistic Models](https://arxiv.org/pdf/2006.112
 cd DDPM_pytorch
 wget https://www.cs.toronto.edu/~kriz/cifar-10-matlab.tar.gz
 tar -zxvf cifar-10-matlab.tar.gz
-python train.py --data_type cifar10 --path ./cifar-10-matlab/ --batchsize 128 --epoch 500
+python train.py --data_type cifar10 --path ./cifar-10-batches-mat/ --batchsize 128 --epoch 500
 ```
 ## Diffusion process
 ```
 python diffusion_process.py --timesteps 1000 --t 100,200,300,400,500,600,700,800,999 --img_path resources/face.png
 ```
-
+![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/diffusion1000.png)
 ## Reverse diffusion process
 ```
 python reverse_diffusion_process.py --data_type cifar10 --timesteps 1000 --weights ./saved_models/model500.pth
 ```
-![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/intro_diff.png)
-
-
-
-### Diffusion results
--------------
-
-![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/diffusion.png)
+![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/rev_diff.png)
 
 ## Requirements
 1. python3

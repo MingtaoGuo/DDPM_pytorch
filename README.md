@@ -21,11 +21,16 @@ python diffusion_process.py --timesteps 1000 --t 100,200,300,400,500,600,700,800
 ```
 ![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/diffusion1000.png)
 ## Reverse diffusion process
-Download the cifar10 pretrained model from [GoogleDrive](https://drive.google.com/file/d/1-fFUkAsGi1uHQxWXmkHtt7LwnDzm7odN/view?usp=sharing), and then put the model into the folder saved_models
+Download the cifar10 and celeba pretrained model from GoogleDrive [cifar10](https://drive.google.com/file/d/1-fFUkAsGi1uHQxWXmkHtt7LwnDzm7odN/view?usp=sharing), [celeba](https://drive.google.com/file/d/1-fFUkAsGi1uHQxWXmkHtt7LwnDzm7odN/view?usp=sharing), and then put the model into the folder saved_models
 ```
 python reverse_diffusion_process.py --data_type cifar10 --timesteps 1000 --weights ./saved_models/model500.pth
 ```
 ![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/rev_diff.png)
+
+```
+python reverse_diffusion_process.py --data_type celeba --timesteps 1000 --weights ./saved_models/model20.pth
+```
+![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/celeba_rev_diff.png)
 
 ## Read code
 ### Diffusion process

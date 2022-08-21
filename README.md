@@ -28,6 +28,7 @@ python reverse_diffusion_process.py --data_type cifar10 --timesteps 1000 --weigh
 ![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/rev_diff.png)
 
 ## Read code
+### Diffusion process
 ![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/intro_diff.png)
 ```python
     x_0 = torch.tensor(x_0).to(device)
@@ -70,6 +71,24 @@ python reverse_diffusion_process.py --data_type cifar10 --timesteps 1000 --weigh
             x_t_1 = 1 / torch.sqrt(alpha_t) * (x_t - mu_pred)
         x_t = x_t_1
 ```
+## Timesteps positional embedding
+```python
+class TimestepEmbedding(nn.Module):
+    def __init__(self, ch, device) -> None:
+        super().__init__()
+        self.ch = ch
+        self.device = device
+
+    def forward(self, timesteps):
+        half_dim = self.ch // 2
+        emb = math.log(10000) / (half_dim - 1)
+        emb = torch.exp(torch.range(0, half_dim - 1) * -emb).to(self.device)
+        emb = timesteps[:, None] * emb[None, :] # b x 1 * 1 x n
+        emb = torch.cat([torch.sin(emb), torch.cos(emb)], axis=1)
+        
+        return emb
+```
+![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/t_pos_emb.png)
 ## Embedding timestep into UNet
 ```python
 class ResBlock(nn.Module):

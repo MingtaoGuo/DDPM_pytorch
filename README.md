@@ -10,6 +10,7 @@ Paper: [Denoising Diffusion Probabilistic Models](https://arxiv.org/pdf/2006.112
 
 ## Training
 ```
+git clone https://github.com/MingtaoGuo/DDPM_pytorch.git
 cd DDPM_pytorch
 wget https://www.cs.toronto.edu/~kriz/cifar-10-matlab.tar.gz
 tar -zxvf cifar-10-matlab.tar.gz

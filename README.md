@@ -33,6 +33,12 @@ python reverse_diffusion_process.py --data_type celeba --timesteps 1000 --weight
 ```
 ![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/celeba_rev_diff.png)
 
+## Interpolation
+```
+python interpolate.py --data_type celeba  --timesteps 1000 --weights ./saved_models/model20.pth --interp_step 500 --img1_path resources/000001.jpg --img2_path resources/000002.jpg
+```
+![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/celeba_rev_diff_interp.png)
+
 ## Read code
 ### Diffusion process
 ![](https://github.com/MingtaoGuo/DDPM_pytorch/raw/main/resources/intro_diff.png)
